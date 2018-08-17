@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/br.edu.ufcg.splab.claret.feature_1.0.0.201808161052.jar" id="br.edu.ufcg.splab.claret.feature" version="1.0.0.201808161052">
+   <feature url="features/br.edu.ufcg.splab.claret.feature_1.0.0.201808171118.jar" id="br.edu.ufcg.splab.claret.feature" version="1.0.0.201808171118">
       <category name="br.edu.ufcg.splab.claret.category"/>
    </feature>
    <category-def name="br.edu.ufcg.splab.claret.category" label="Claret Category">

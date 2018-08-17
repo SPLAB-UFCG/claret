@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package 
+			uri = "http://www.edu.br/ufcg/splab/claret/Claret"
+			class = "br.edu.ufcg.splab.claret.claret.ClaretPackage"
+			genModel = "model/generated/Claret.genmodel" />
+	</extension>
+</plugin>

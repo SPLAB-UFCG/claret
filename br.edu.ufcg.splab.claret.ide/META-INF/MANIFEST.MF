@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: br.edu.ufcg.splab.claret.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: br.edu.ufcg.splab.claret.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: br.edu.ufcg.splab.claret,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: br.edu.ufcg.splab.claret.ide.contentassist.antlr.internal,
+ br.edu.ufcg.splab.claret.ide.contentassist.antlr
+

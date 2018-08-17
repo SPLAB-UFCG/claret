@@ -1,0 +1,91 @@
+/**
+ * Copyright 2018 Dalton Nicodemos Jorge
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0 
+ * 
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License. 
+ * 
+ * @author Dalton Nicodemos Jorge <daltonjorge@copi.ufcg.edu.br>
+ */
+
+grammar br.edu.ufcg.splab.claret.Claret with org.eclipse.xtext.common.Terminals
+
+generate claret "http://www.edu.br/ufcg/splab/claret/Claret"
+
+Sud:
+    'systemName' name=STRING (usecases+=Usecase)*;
+
+Usecase:
+    'usecase' name=STRING '{'
+    versions+=Version*
+    actors+=Actor+
+    preCondition=Precondition
+    basic=Basic
+    flows+=(Alternative | Exception)*
+    postCondition=PostCondition '}';
+
+Precondition:
+    'preCondition' (preConditionList+=STRING ',')* preConditionList+=STRING;
+
+PostCondition:
+    'postCondition' (postConditionList+=STRING ',')* postConditionList+=STRING;
+
+Basic:
+    'basic' '{' (steps+=BasicAction | steps+=BasicResponse)+ '}';
+
+BasicAction:
+    'step' id=INT actor=[Actor] action=STRING skip=Af?;
+
+BasicResponse:
+    'step' id=INT 'system' action=STRING skip=Ef?;
+
+Af:
+    'af' '[' (afList+=INT ',')* afList+=INT ']';
+
+Ef:
+    'ef' '[' (efList+=INT ',')* efList+=INT ']';
+
+Bs:
+    'bs' id=INT;
+
+Afs:
+    'afs' af=INT ':' step=INT;
+
+Version:
+    'version' version=STRING
+    'type' type=STRING
+    'user' user=STRING
+    'date' date=STRING;
+
+Actor:
+    'actor' name=ID description=STRING;
+
+Alternative:
+    'alternative' id=INT description=STRING '{'
+    (steps+=AlternativeAction | steps+=AlternativeResponse)*
+    '}';
+
+AlternativeAction:
+    'step' id=INT actor=[Actor] action=STRING skip=Bs?;
+
+AlternativeResponse:
+    'step' id=INT 'system' action=STRING skip=Ef?;
+
+Exception:
+    'exception' id=INT description=STRING '{'
+    (steps+=ExceptionResponse | steps+=ExceptionAction)*
+    '}';
+
+ExceptionAction:
+    'step' id=INT actor=[Actor] action=STRING;
+
+ExceptionResponse:
+    'step' id=INT 'system' action=STRING skip=(Bs|Afs)?;

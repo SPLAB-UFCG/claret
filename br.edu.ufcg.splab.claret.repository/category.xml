@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<feature id="br.edu.ufcg.splab.claret.feature" version="0.0.0">
+		<category name="main"/>
+	</feature>
+	<feature id="br.edu.ufcg.splab.claret.feature.source" version="0.0.0">
+		<category name="main.source"/>
+	</feature>
+	<category-def name="main" label="Claret"/>
+	<category-def name="main.source" label="Claret (Sources)"/>
+</site>

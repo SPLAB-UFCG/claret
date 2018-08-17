@@ -132,11 +132,11 @@ class TgfBuilder {
     }
 
     def dispatch getDescription(BasicAction type) { type.actor.name + ' ' + type.action }
-    def dispatch getDescription(BasicResponse type) { 'sistema ' + type.action }
+    def dispatch getDescription(BasicResponse type) { 'system ' + type.action }
     def dispatch getDescription(AlternativeAction type) { type.actor.name + ' ' + type.action }
-    def dispatch getDescription(AlternativeResponse type) { 'sistema ' + type.action }
+    def dispatch getDescription(AlternativeResponse type) { 'system ' + type.action }
     def dispatch getDescription(ExceptionAction type) { type.actor.name + ' ' + type.action }
-    def dispatch getDescription(ExceptionResponse type) { 'sistema ' + type.action }
+    def dispatch getDescription(ExceptionResponse type) { 'system ' + type.action }
     def dispatch getDescription(Precondition type) { type.preConditionList.join('. ') }
     def dispatch getDescription(PostCondition type) { type.postConditionList.join('. ') }
 

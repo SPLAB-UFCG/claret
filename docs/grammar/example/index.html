@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/claret/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/claret/images/favicon.png" type="image/x-icon" />
-    <title>Syntax Diagram :: CLARET</title>
+    <title>Example :: CLARET</title>
 
     
     <link href="/claret/css/nucleus.css?1534824634" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/claret/grammar/syntax_diagram/">
+  <body class="" data-url="/claret/grammar/example/">
     <nav id="sidebar" class="">
 
 
@@ -157,8 +157,8 @@
   
     
     <li data-nav-id="/claret/grammar/syntax_diagram/" title="Syntax Diagram" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/claret/grammar/syntax_diagram/">
@@ -181,8 +181,8 @@
   
     
     <li data-nav-id="/claret/grammar/example/" title="Example" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/claret/grammar/example/">
@@ -263,7 +263,7 @@
             
           
           
-            <a href='/claret/'></a> > <a href='/claret/grammar/'>Grammar</a> > Syntax Diagram
+            <a href='/claret/'></a> > <a href='/claret/grammar/'>Grammar</a> > Example
           
          
           
@@ -287,13 +287,93 @@
         
         <div id="body-inner">
           
-            <h1>Syntax Diagram</h1>
+            <h1>Example</h1>
           
 
         
 
 
-<p><img src="images/syntax.png" alt="ebnf" /></p>
+<p>Due to its similarity with the JSON’s definition, we believe developers are likely to have little trouble either to understand or to use Claret, particularly due to the fact that the intended use of Claret is in agile development, where most team members of skilled programmers.</p>
+
+<p>Listing below exemplifies the use of CLARET in the specification of the following user requirement of an email system:</p>
+
+<blockquote>
+<p>“In order to access her email inbox the user must be previously registered in the system and must provide correct username and password. The system may suggest previously attempted user names. In case of incorrect combination of username and password, the system must display an error message and ask for new data. If the user is not registered the system must inform that the user is not registered.”</p>
+</blockquote>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1</span><span style="color:#a6e22e">systemName</span> <span style="color:#e6db74">&#34;Email&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2</span><span style="color:#a6e22e">usecase</span> <span style="color:#e6db74">&#34;Log in User&#34;</span> {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3</span>  <span style="color:#a6e22e">version</span> <span style="color:#e6db74">&#34;1.0&#34;</span> <span style="color:#a6e22e">type</span> <span style="color:#e6db74">&#34;Creation&#34;</span> <span style="color:#a6e22e">user</span> <span style="color:#e6db74">&#34;Dalton&#34;</span> <span style="color:#a6e22e">date</span> <span style="color:#e6db74">&#34;01/01/2018&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4</span>  <span style="color:#a6e22e">actor</span> <span style="color:#a6e22e">emailUser</span> <span style="color:#e6db74">&#34;Email User&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5</span>  <span style="color:#a6e22e">preCondition</span> <span style="color:#e6db74">&#34;There is an active network connection.&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6</span>  <span style="color:#a6e22e">basic</span> {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7</span>    <span style="color:#a6e22e">step</span> <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">emailUser</span> <span style="color:#e6db74">&#34;launches the login screen&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8</span>    <span style="color:#a6e22e">step</span> <span style="color:#ae81ff">2</span> <span style="color:#a6e22e">system</span> <span style="color:#e6db74">&#34;presents a form with username and password fields and a submit button&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9</span>    <span style="color:#a6e22e">step</span> <span style="color:#ae81ff">3</span> <span style="color:#a6e22e">emailUser</span> <span style="color:#e6db74">&#34;fills out the fields and click on the submit button&#34;</span> <span style="color:#a6e22e">af</span>[<span style="color:#ae81ff">1</span>]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10</span>    <span style="color:#a6e22e">step</span> <span style="color:#ae81ff">4</span> <span style="color:#a6e22e">system</span> <span style="color:#e6db74">&#34;displays a successful message&#34;</span> <span style="color:#a6e22e">ef</span>[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>]
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11</span>  }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12</span>  <span style="color:#a6e22e">alternative</span> <span style="color:#ae81ff">1</span> <span style="color:#e6db74">&#34;Username is predicted&#34;</span> {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13</span>    <span style="color:#a6e22e">step</span> <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">emailUser</span> <span style="color:#e6db74">&#34;selects a suggested user name, types password and click on the submit button&#34;</span> <span style="color:#a6e22e">bs</span> <span style="color:#ae81ff">4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14</span>  }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15</span>  <span style="color:#a6e22e">exception</span> <span style="color:#ae81ff">1</span> <span style="color:#e6db74">&#34;User does not exist in database&#34;</span> {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16</span>    <span style="color:#a6e22e">step</span> <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">system</span> <span style="color:#e6db74">&#34;alerts that user does not exist&#34;</span> <span style="color:#a6e22e">bs</span> <span style="color:#ae81ff">3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17</span>  }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18</span>  <span style="color:#a6e22e">exception</span> <span style="color:#ae81ff">2</span> <span style="color:#e6db74">&#34;Incorrect username/password combination&#34;</span> {
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19</span>    <span style="color:#a6e22e">step</span> <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">system</span> <span style="color:#e6db74">&#34;alerts that username and/or password are incorrect&#34;</span> <span style="color:#a6e22e">bs</span> <span style="color:#ae81ff">3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20</span>  }
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21</span>  <span style="color:#a6e22e">postCondition</span> <span style="color:#e6db74">&#34;User successfully logged&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22</span>}
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23</span></code></pre></div>
+
+<ol>
+<li>Firstly, we define the system name (Line 1) and the name of the first use case (Line 2).</li>
+<li>Then, we provide some optional information about the use case such as its version, the kind of modification, the name of the use case writer, and the modification date.</li>
+<li>Next, we define the actor (Line 4) followed by the use case precondition (Line 5).</li>
+<li>We specify the main scenario using the “basic” element (Line 6).</li>
+<li>Note that the main scenario is composed of 4 steps (Lines from 7 to 10). Each step has an identification, an agent (actor or system), and an action described in NL.</li>
+<li>Note that in Line 9 there is a possible deviation specified by the “af ” mark (alternative flow) meaning that the first step of the alternative flow 1 can be executed instead of the step 3 of the main flow.</li>
+<li>After the execution of the step 1 of the alternative flow 1, there is a return point to the step 4 of the basic flow, meaning that basic flow may resume after the alternate step.</li>
+<li>Similarly, there is another possible deviation in Line 10 indicating, through “ef ” (exception flow), the possibility of execution of the exception flows 1 or 2 instead of step 4 of the main flow.</li>
+<li>Finally, we specify the post-condition in Line 21 indicating that if step 4 of the basic flow was successfully executed then the user must be logged in the system.</li>
+</ol>
+
+<p>From this use case, we can identify the following linearly independent2 flows of execution as test cases:</p>
+
+<div class="mermaid" align="left">
+graph LR;
+    A[bs:1] --> B[bs:2]
+    B --> C[bs:3]
+    C --> D[bs:4]
+</div>
+
+
+<div class="mermaid" align="left">
+graph LR;
+    A[bs:1] --> B[bs:2]
+    B --> C["af[1]:1"]
+    C --> D[bs:4]
+</div>
+
+
+<div class="mermaid" align="left">
+graph LR;
+    A[bs:1] --> B[bs:2]
+    B --> C[bs:3]
+    C --> D["ef[1]:1"]
+    D --> E[bs:3]
+    E --> F[bs:4]
+</div>
+
+
+<div class="mermaid" align="left">
+graph LR;
+    A[bs:1] --> B[bs:2]
+    B --> C[bs:3]
+    C --> D["ef[2]:1"]
+    D --> E[bs:3]
+    E --> F[bs:4]
+</div>
+
 
 
 <footer class=" footline" >
@@ -401,7 +481,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -418,8 +497,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -442,10 +519,10 @@
 
 
         
-            <a class="nav nav-prev" href="/claret/grammar/ebnf/" title="EBNF"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/claret/grammar/syntax_diagram/" title="Syntax Diagram"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/claret/grammar/example/" title="Example" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/claret/grammar/ebnf/" title="EBNF" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 

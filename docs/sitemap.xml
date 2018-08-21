@@ -28,6 +28,11 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/claret/grammar/example/</loc>
+    <lastmod>2018-08-21T00:36:38-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/claret/</loc>
     <lastmod>2018-08-20T19:24:05-03:00</lastmod>
   </url>

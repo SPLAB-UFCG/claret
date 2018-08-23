@@ -9,22 +9,22 @@
 
     <link rel="shortcut icon" href="/claret/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/claret/images/favicon.png" type="image/x-icon" />
-    <title>Syntax Diagram :: CLARET</title>
+    <title>Process :: CLARET</title>
 
     
-    <link href="/claret/css/nucleus.css?1534992204" rel="stylesheet">
-    <link href="/claret/css/fontawesome-all.min.css?1534992204" rel="stylesheet">
-    <link href="/claret/css/hybrid.css?1534992204" rel="stylesheet">
-    <link href="/claret/css/featherlight.min.css?1534992204" rel="stylesheet">
-    <link href="/claret/css/perfect-scrollbar.min.css?1534992204" rel="stylesheet">
-    <link href="/claret/css/auto-complete.css?1534992204" rel="stylesheet">
-    <link href="/claret/css/theme.css?1534992204" rel="stylesheet">
-    <link href="/claret/css/hugo-theme.css?1534992204" rel="stylesheet">
+    <link href="/claret/css/nucleus.css?1534991412" rel="stylesheet">
+    <link href="/claret/css/fontawesome-all.min.css?1534991412" rel="stylesheet">
+    <link href="/claret/css/hybrid.css?1534991412" rel="stylesheet">
+    <link href="/claret/css/featherlight.min.css?1534991412" rel="stylesheet">
+    <link href="/claret/css/perfect-scrollbar.min.css?1534991412" rel="stylesheet">
+    <link href="/claret/css/auto-complete.css?1534991412" rel="stylesheet">
+    <link href="/claret/css/theme.css?1534991412" rel="stylesheet">
+    <link href="/claret/css/hugo-theme.css?1534991412" rel="stylesheet">
     
-      <link href="/claret/css/theme-red.css?1534992204" rel="stylesheet">
+      <link href="/claret/css/theme-red.css?1534991412" rel="stylesheet">
     
 
-    <script src="/claret/js/jquery-2.x.min.js?1534992204"></script>
+    <script src="/claret/js/jquery-2.x.min.js?1534991412"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/claret/grammar/syntax_diagram/">
+  <body class="" data-url="/claret/process/">
     <nav id="sidebar" class="">
 
 
@@ -274,7 +274,7 @@
   
     
     <li data-nav-id="/claret/grammar/" title="Grammar" class="dd-item 
-        parent
+        
         
         
         ">
@@ -325,8 +325,8 @@
   
     
     <li data-nav-id="/claret/grammar/syntax_diagram/" title="Syntax Diagram" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/claret/grammar/syntax_diagram/">
@@ -343,6 +343,28 @@
           
         
         </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/claret/process/" title="Process" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/claret/process/">
+          <b>4. </b>Process
+          
+      </a>
+      
               
     </li>
   
@@ -403,13 +425,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/claret/'></a> > <a href='/claret/grammar/'>Grammar</a> > Syntax Diagram
-          
-         
+            <a href='/claret/'></a> > Process
           
          
           
@@ -419,7 +435,20 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#process">Process</a>
+<ul>
+<li><a href="#references">References</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -431,13 +460,34 @@
         
         <div id="body-inner">
           
-            <h1>Syntax Diagram</h1>
+            <h1>Process</h1>
           
 
         
 
 
-<p><img src="images/syntax.png" alt="ebnf" /></p>
+
+
+<h3 id="process">Process</h3>
+
+<p>An overview of Claret regarding its tool support and related artifacts is shown below.</p>
+
+<p><img src="images/process.png?classes=shadow" alt="Process" /></p>
+
+<p>For the sake of simplicity, it focus on activities concerned with test generation, use case creation, and changes.
+Note that Claret is a central artifact for both RE and MBT. Moreover, we follow the iterative philosophy of Agile RE assuming that the RE process includes activities such as Change Management and Requirements Management to support continuous changes to requirements, by creating/updating Claret documents – a key feature for effectiveness of both Agile RE and MBT [1], [2].</p>
+
+<p>The RE flow of artifacts starts with the user requirements list (for example, the product backlog) that is the base for creating Claret use cases. From it, use cases can be created and updated continuously. As needed during the agile cycles, the Claret tool compiles the use case specifications for generating: i) <a href="https://en.wikipedia.org/wiki/Trivial_Graph_Format">Trivial Graph Format</a> test models for MBT and ii) RE Docs for communication with stakeholders in the RE process. In the scope of MBT, the TGF artifacts can be visually analyzed using the <a href="https://www.yworks.com/products/yed">yEd</a> tool in order to seek for possible inconsistencies and unspecified scenarios that leads to change requests.</p>
+
+<p>In the MBT flow, from (validated) TGF models, test cases can be generated using the LTS-BT tool [3]. LTS-BT can generate test cases extracting paths from TGF models using a Depth-First Search (DFS) algorithm based on coverage criteria and also test suite reduction strategies. Generated test cases can be exported in an XML format accepted as input by <a href="http://www.testlink.org">Testlink</a>, a test management tool that supports manual test case execution. For execution, a test plan can be defined and manually executed on the system under testing. Testlink provides reports on test results that may lead to change requests.</p>
+
+<h4 id="references">References</h4>
+
+<p>[1] T. Chow and D.-B. Cao. A survey study of critical success factors in agile software projects. Journal of Systems and Software, 81(6):961 – 971, 2008. Agile Product Line Engineering.</p>
+
+<p>[2] I. Inayat, L. Moraes, M. Daneva, and S. S. Salim. A reflection on agile requirements engineering: Solutions brought and challenges posed. In Scientific Workshop Proceedings of the XP2015, XP ’15 workshops, pages 6:1–6:7, New York, NY, USA, 2015. ACM.</p>
+
+<p>[3] E.G.Cartaxo,W.L.Andrade,F.G.O.Neto,andP.D.L.Machado.LTS- BT: A tool to generate and select functional test cases for embedded systems. In Proceedings of the 2008 ACM Symposium on Applied Computing, SAC ’08, pages 1540–1544, New York, NY, USA, 2008. ACM.</p>
 
 
 <footer class=" footline" >
@@ -610,7 +660,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -625,9 +674,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -645,7 +691,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -660,6 +705,23 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -667,10 +729,10 @@
 
 
         
-            <a class="nav nav-prev" href="/claret/grammar/ebnf/" title="EBNF"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/claret/grammar/syntax_diagram/" title="Syntax Diagram"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/claret/grammar/ebnf/" title="EBNF" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/claret/basic/" title="Basic" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
@@ -679,20 +741,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/claret/js/clipboard.min.js?1534992204"></script>
-    <script src="/claret/js/perfect-scrollbar.min.js?1534992204"></script>
-    <script src="/claret/js/perfect-scrollbar.jquery.min.js?1534992204"></script>
-    <script src="/claret/js/jquery.sticky.js?1534992204"></script>
-    <script src="/claret/js/featherlight.min.js?1534992204"></script>
-    <script src="/claret/js/html5shiv-printshiv.min.js?1534992204"></script>
-    <script src="/claret/js/highlight.pack.js?1534992204"></script>
+    <script src="/claret/js/clipboard.min.js?1534991412"></script>
+    <script src="/claret/js/perfect-scrollbar.min.js?1534991412"></script>
+    <script src="/claret/js/perfect-scrollbar.jquery.min.js?1534991412"></script>
+    <script src="/claret/js/jquery.sticky.js?1534991412"></script>
+    <script src="/claret/js/featherlight.min.js?1534991412"></script>
+    <script src="/claret/js/html5shiv-printshiv.min.js?1534991412"></script>
+    <script src="/claret/js/highlight.pack.js?1534991412"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/claret/js/modernizr.custom.71422.js?1534992204"></script>
-    <script src="/claret/js/learn.js?1534992204"></script>
-    <script src="/claret/js/hugo-learn.js?1534992204"></script>
+    <script src="/claret/js/modernizr.custom.71422.js?1534991412"></script>
+    <script src="/claret/js/learn.js?1534991412"></script>
+    <script src="/claret/js/hugo-learn.js?1534991412"></script>
 
-    <link href="/claret/mermaid/mermaid.css?1534992204" type="text/css" rel="stylesheet" />
-    <script src="/claret/mermaid/mermaid.js?1534992204"></script>
+    <link href="/claret/mermaid/mermaid.css?1534991412" type="text/css" rel="stylesheet" />
+    <script src="/claret/mermaid/mermaid.js?1534991412"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

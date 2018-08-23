@@ -3,13 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://localhost:1313/claret/install/</loc>
-    <lastmod>2018-08-20T21:00:42-03:00</lastmod>
+    <loc>http://localhost:1313/claret/basic/</loc>
+    <lastmod>2018-08-22T20:47:14-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/claret/basic/requirements/</loc>
+    <lastmod>2018-08-22T20:49:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/claret/basic/install/</loc>
+    <lastmod>2018-08-22T20:50:07-03:00</lastmod>
   </url>
   
   <url>
     <loc>http://localhost:1313/claret/documentation/</loc>
     <lastmod>2018-08-20T21:00:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/claret/documentation/newproject/</loc>
+    <lastmod>2018-08-21T21:42:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/claret/documentation/newfile/</loc>
+    <lastmod>2018-08-21T21:43:05-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/claret/documentation/example/</loc>
+    <lastmod>2018-08-21T00:36:38-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/claret/documentation/process/</loc>
+    <lastmod>2018-08-21T19:58:21-03:00</lastmod>
   </url>
   
   <url>
@@ -25,11 +55,6 @@
   <url>
     <loc>http://localhost:1313/claret/grammar/syntax_diagram/</loc>
     <lastmod>2018-08-20T23:48:46-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/claret/grammar/example/</loc>
-    <lastmod>2018-08-21T00:36:38-03:00</lastmod>
   </url>
   
   <url>

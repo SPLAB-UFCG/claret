@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/basic/</loc>
+    <lastmod>2018-08-22T20:47:14-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/basic/requirements/</loc>
+    <lastmod>2018-08-22T20:49:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/basic/install/</loc>
+    <lastmod>2018-08-22T20:50:07-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/documentation/</loc>
+    <lastmod>2018-08-20T21:00:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/documentation/newproject/</loc>
+    <lastmod>2018-08-21T21:42:56-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/documentation/newfile/</loc>
+    <lastmod>2018-08-21T21:43:05-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/documentation/example/</loc>
+    <lastmod>2018-08-21T00:36:38-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/documentation/process/</loc>
+    <lastmod>2018-08-21T19:58:21-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/grammar/</loc>
+    <lastmod>2018-08-20T23:45:36-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/grammar/ebnf/</loc>
+    <lastmod>2018-08-20T23:47:43-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/grammar/syntax_diagram/</loc>
+    <lastmod>2018-08-20T23:48:46-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/people/</loc>
+    <lastmod>2018-08-22T23:58:59-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/</loc>
+    <lastmod>2018-08-20T19:24:05-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daltonjorge.github.io/claret/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

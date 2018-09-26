@@ -24,13 +24,17 @@ Sud:
     'systemName' name=STRING (usecases+=Usecase)*;
 
 Usecase:
-    'usecase' name=STRING '{'
+    'usecase' id=ID name=STRING '{'
     versions+=Version*
+    description=Description
     actors+=Actor+
     preCondition=Precondition
     basic=Basic
     flows+=(Alternative | Exception)*
     postCondition=PostCondition '}';
+
+Description:
+	'description' text=STRING;
 
 Precondition:
     'preCondition' (preConditionList+=STRING ',')* preConditionList+=STRING;

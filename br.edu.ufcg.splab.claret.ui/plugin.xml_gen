@@ -249,15 +249,6 @@
 		<super type="org.eclipse.xtext.ui.check.expensive"/>
 		<persistent value="true"/>
 	</extension>
-	<extension point="org.eclipse.ui.preferencePages">
-		<page
-			category="br.edu.ufcg.splab.claret.Claret"
-			class="br.edu.ufcg.splab.claret.ui.ClaretExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
-			id="br.edu.ufcg.splab.claret.Claret.validator.preferencePage"
-			name="Errors/Warnings">
-			<keywordReference id="br.edu.ufcg.splab.claret.ui.keyword_Claret"/>
-		</page>
-	</extension>
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="br.edu.ufcg.splab.claret.ui.ClaretExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
@@ -445,11 +436,11 @@
 		</wizard>
 	</extension>
 	<extension
-	      point="org.eclipse.xtext.ui.projectTemplate">
-	   <projectTemplateProvider
-	         class="br.edu.ufcg.splab.claret.ui.wizard.ClaretProjectTemplateProvider"
-	         grammarName="br.edu.ufcg.splab.claret.Claret">
-	   </projectTemplateProvider>
+		point="org.eclipse.xtext.ui.projectTemplate">
+		<projectTemplateProvider
+			class="br.edu.ufcg.splab.claret.ui.ClaretExecutableExtensionFactory:br.edu.ufcg.splab.claret.ui.wizard.ClaretProjectTemplateProvider"
+			grammarName="br.edu.ufcg.splab.claret.Claret">
+		</projectTemplateProvider>
 	</extension>
 	<extension
 		point="org.eclipse.ui.perspectiveExtensions">
@@ -473,11 +464,11 @@
 		</wizard>
 	</extension>
 	<extension
-	      point="org.eclipse.xtext.ui.fileTemplate">
-	   <fileTemplateProvider
-	         class="br.edu.ufcg.splab.claret.ui.wizard.ClaretFileTemplateProvider"
-	         grammarName="br.edu.ufcg.splab.claret.Claret">
-	   </fileTemplateProvider>
+		point="org.eclipse.xtext.ui.fileTemplate">
+		<fileTemplateProvider
+			class="br.edu.ufcg.splab.claret.ui.ClaretExecutableExtensionFactory:br.edu.ufcg.splab.claret.ui.wizard.ClaretFileTemplateProvider"
+			grammarName="br.edu.ufcg.splab.claret.Claret">
+		</fileTemplateProvider>
 	</extension>
 	<extension
 		point="org.eclipse.ui.perspectiveExtensions">

@@ -46,6 +46,7 @@ class ClaretGenerator extends AbstractGenerator {
     }
 
     for (u : resource.allContents.toIterable.filter(Usecase)){
+      fsa.generateFile("gml/"+ u.name + ".gml", GmlGenerator.toText(u))
       fsa.generateFile("tgf/"+ u.name + ".tgf", TgfGenerator.toText(u))
       fsa.generateFile("tgf/"+ u.name + "-annotated.tgf", AnnotatedTgfGenerator.toText(u))
       val root = resource.allContents.head as Sud

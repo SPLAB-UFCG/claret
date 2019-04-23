@@ -21,29 +21,28 @@ package br.edu.ufcg.splab.claret.generator
 import br.edu.ufcg.splab.claret.claret.Usecase
 
 class GmlGenerator {
-	def static toText(Usecase usecase) {
+	def static GMLStruct getGMLStruct(Usecase usecase) {
         val g = new TgfBuilder().parser(usecase)
-
-        // Print vertices and edges
-        return '''
-graph
-[
-    «FOR v : g.vertices »
-    node
-    [
-        id «v»
-        label "«v»"
-    ]«"\n"»
-«ENDFOR»
-    «FOR e : g.getEdgesList »
-    edge
-    [
-        source «e.one»
-        target «e.two»
-        label «e.annotation» "«e.description.replaceAll("\\r\\n\\s\\t*|\\r\\s\\t*|\\n\\s\\t*", " ")»"
-    ]«"\n"»
-«ENDFOR»
-]
-'''
+        val content = '''
+			graph
+			[
+			    «FOR v : g.vertices »
+			    node
+			    [
+			        id «v»
+			        label "«v»"
+			    ]«"\n"»
+			«ENDFOR»
+			    «FOR e : g.getEdgesList »
+			    edge
+			    [
+			        source «e.one»
+			        target «e.two»
+			        label "«e.annotation» «e.description.replaceAll("\\r\\n\\s\\t*|\\r\\s\\t*|\\n\\s\\t*", " ")»"
+			    ]«"\n"»
+			«ENDFOR»
+			]
+			'''
+		return new GMLStruct(g.initialNode.toString, g.finalNode.toString, content)
     }
 }

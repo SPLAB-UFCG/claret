@@ -34,25 +34,33 @@ import java.io.IOException
  */
 class ClaretGenerator extends AbstractGenerator {
   override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//    val path = resource.getURI().lastSegment + "/"
-
-    try {
-      if(!fsa.isFile('template.odt', TemplateOutputConfigurationProvider::GEN_ONCE_OUTPUT)) {
-        val in = this.class.getResourceAsStream("/resources/template.odt")
-        (fsa as IFileSystemAccessExtension3).generateFile('template.odt', TemplateOutputConfigurationProvider::GEN_ONCE_OUTPUT, in)
+	val files = #['template.odt', 'template.docx']
+    files.forEach[
+      try {
+      	if(!fsa.isFile(it, TemplateOutputConfigurationProvider::GEN_ONCE_OUTPUT)) {
+          val in = this.class.getResourceAsStream("/resources/" + it)
+          (fsa as IFileSystemAccessExtension3).generateFile(it, TemplateOutputConfigurationProvider::GEN_ONCE_OUTPUT, in)
+        }
+      } catch (IOException e) {
+        throw new RuntimeException(it + " cannot be loaded.", e);
       }
-    } catch (IOException e) {
-      throw new RuntimeException("template.odt cannot be loaded.", e);
-    }
+    ]
 
     for (u : resource.allContents.toIterable.filter(Usecase)){
-      fsa.generateFile("gml/"+ u.name + ".gml", GmlGenerator.toText(u))
+      val gml = GmlGenerator.getGMLStruct(u)
+      fsa.generateFile("gml/"+ u.name + ".gml", gml.content)
       fsa.generateFile("tgf/"+ u.name + ".tgf", TgfGenerator.toText(u))
       fsa.generateFile("tgf/"+ u.name + "-annotated.tgf", AnnotatedTgfGenerator.toText(u))
+      TestSuiteGenerator.toText(u, gml).forEach[k,v|
+      	fsa.generateFile("test-suite/"+ u.name + "-"+k.toString+".txt", v.toString)
+      ]
+      
       val root = resource.allContents.head as Sud
       if (root !== null) {
-        (fsa as IFileSystemAccessExtension3).generateFile("odt/" + u.name + ".odt", TextGenerator.toOdt(root.name, u, fsa))
+        (fsa as IFileSystemAccessExtension3).generateFile("odt/" + u.name + ".odt", OdtGenerator.generate(root.name, u, fsa))
+        (fsa as IFileSystemAccessExtension3).generateFile("docx/" + u.name + ".docx", DocxGenerator.generate(root.name, u, fsa))
       }
     }
   }
 }
+

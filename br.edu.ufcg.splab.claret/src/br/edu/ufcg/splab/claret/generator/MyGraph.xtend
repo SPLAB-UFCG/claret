@@ -18,17 +18,15 @@
 
 package br.edu.ufcg.splab.claret.generator
 
-import java.util.LinkedHashMap
 import java.util.ArrayList
+import java.util.LinkedHashMap
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class MyGraph {
-    ArrayList<Integer> vertices
-    LinkedHashMap<String, MyEdge> edges
-
-    new(){
-        this.vertices = new ArrayList<Integer>()
-        this.edges = new LinkedHashMap<String, MyEdge>()
-    }
+	@Accessors int initialNode
+	@Accessors int finalNode
+    @Accessors(PUBLIC_GETTER) val vertices = new ArrayList<Integer>()
+    @Accessors(PUBLIC_GETTER) val edges = new LinkedHashMap<String, MyEdge>()
 
     def Integer addEdge(Integer one, Integer two, String id , String description, String annotation){
         val e = new MyEdge(one, two, id, description, annotation)
@@ -66,15 +64,7 @@ class MyGraph {
         return new ArrayList<MyEdge>(this.edges.values())
     }
 
-    def ArrayList<Integer> getVertices() {
-        return this.vertices
-    }
-
     def Integer newVertexId() {
         return this.vertices.size + 1
-    }
-
-    def LinkedHashMap<String, MyEdge> getEdges() {
-      this.edges
     }
 }

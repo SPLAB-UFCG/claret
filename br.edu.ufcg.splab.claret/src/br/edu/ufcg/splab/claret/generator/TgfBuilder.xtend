@@ -39,13 +39,15 @@ class TgfBuilder {
 
     def MyGraph parser(Usecase usecase) {
         // Pre-condition Rule
-        var next = g.addEdge(g.newVertex, g.newVertex, 'PC', getDescription(usecase.preCondition), getAnnotationType(usecase.preCondition))
+    	g.initialNode = g.newVertex
+        var next = g.addEdge(g.initialNode, g.newVertex, 'PC', getDescription(usecase.preCondition), getAnnotationType(usecase.preCondition))
 
         // Chainning sequential basic steps...
         next = usecase.basic.steps.fold(next)[ n, s | g.addEdge(n, g.newVertex, 'BS' + getStepId(s), getDescription(s), getAnnotationType(s)) ]
 
         // Post-condition Rule
-        val fim_po = g.addEdge( next, g.newVertex, 'PO', getDescription(usecase.postCondition), getAnnotationType(usecase.postCondition))
+        g.finalNode = g.newVertex
+        val fim_po = g.addEdge( next, g.finalNode, 'PO', getDescription(usecase.postCondition), getAnnotationType(usecase.postCondition))
 
         // Alternative and Exception Rules
         usecase.basic.steps.forEach[ step | if (getSkip(step) !== null) applyRules('BS', step.stepId, getSkip(step), usecase, fim_po) ]
@@ -131,11 +133,11 @@ class TgfBuilder {
       ]
     }
 
-    def dispatch getDescription(BasicAction type) { type.actor.name + ' ' + type.action }
+    def dispatch getDescription(BasicAction type) { type.actor.description + ' ' + type.action }
     def dispatch getDescription(BasicResponse type) { 'system ' + type.action }
-    def dispatch getDescription(AlternativeAction type) { type.actor.name + ' ' + type.action }
+    def dispatch getDescription(AlternativeAction type) { type.actor.description + ' ' + type.action }
     def dispatch getDescription(AlternativeResponse type) { 'system ' + type.action }
-    def dispatch getDescription(ExceptionAction type) { type.actor.name + ' ' + type.action }
+    def dispatch getDescription(ExceptionAction type) { type.actor.description + ' ' + type.action }
     def dispatch getDescription(ExceptionResponse type) { 'system ' + type.action }
     def dispatch getDescription(Precondition type) { type.preConditionList.join('. ') }
     def dispatch getDescription(PostCondition type) { type.postConditionList.join('. ') }

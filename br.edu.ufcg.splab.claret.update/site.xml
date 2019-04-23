@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/br.edu.ufcg.splab.claret.feature_1.0.0.201808171138.jar" id="br.edu.ufcg.splab.claret.feature" version="1.0.0.201808171138">
-      <category name="br.edu.ufcg.splab.claret.category"/>
-   </feature>
-   <category-def name="br.edu.ufcg.splab.claret.category" label="Claret Category">
-      <description>
-         Contains features for the Claret Eclipse Plugin by Dalton Jorge
-      </description>
-   </category-def>
+   <feature url="features/br.edu.ufcg.splab.claret.feature_1.1.0.201904230054.jar" id="br.edu.ufcg.splab.claret.feature" version="1.1.0.201904230054"/>
 </site>

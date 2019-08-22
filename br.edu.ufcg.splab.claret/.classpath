@@ -6,7 +6,7 @@
 	<classpathentry exported="true" kind="lib" path="lib/commons-text-1.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/compiler-0.9.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jgrapht-io-1.3.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/TestSelection.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/dalton/workspace/github/claret/br.edu.ufcg.splab.claret/lib/TestSelection.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="src" path="src-gen"/>

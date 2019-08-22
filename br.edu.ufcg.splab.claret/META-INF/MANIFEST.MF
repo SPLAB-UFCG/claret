@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: br.edu.ufcg.splab.claret
 Bundle-Vendor: SPLab/UFCG
-Bundle-Version: 1.1.1.qualifier
+Bundle-Version: 1.2.1.qualifier
 Bundle-SymbolicName: br.edu.ufcg.splab.claret; singleton:=true
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,

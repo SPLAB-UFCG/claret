@@ -33,9 +33,11 @@ class TestSuiteGenerator {
 		var maxTCSize = 0		
 		val testGenerationDetails = if (maximumTestCaseSize?.size == 0) {
 			val basicStepsSize = usecase.basic.steps.size;
-			val alternativeStepsSize = usecase.flows.filter[it instanceof Alternative].map[(it as Alternative).steps.size].max;
-			val exceptionStepsSize = usecase.flows.filter[it instanceof Exception].map[(it as Exception).steps.size].max;
-			maxTCSize = (basicStepsSize + #[alternativeStepsSize,exceptionStepsSize].max) / 2;
+			val alternativeFlows = usecase.flows?.filter[it instanceof Alternative];
+			val exceptionFlows = usecase.flows?.filter[it instanceof Exception];
+			val alternativeStepsSize = if(alternativeFlows.isEmpty) 0 else alternativeFlows.map[(it as Alternative).steps.size].max;
+			val exceptionStepsSize = if(exceptionFlows.isEmpty) 0 else exceptionFlows.map[(it as Exception).steps.size].max;
+			maxTCSize = (basicStepsSize + #[alternativeStepsSize.intValue, exceptionStepsSize.intValue].max) / 2;
 			''' * - Calculated Maximum Test Case Size: «maxTCSize»
  *
  * - Equation:

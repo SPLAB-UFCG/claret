@@ -21,7 +21,10 @@ grammar br.edu.ufcg.splab.claret.Claret with org.eclipse.xtext.common.Terminals
 generate claret "http://www.edu.br/ufcg/splab/claret/Claret"
 
 Sud:
-    'systemName' name=STRING (usecases+=Usecase)*;
+    'systemName' name=STRING maximumTestCaseSize=MaximumTestCaseSize? (usecases+=Usecase)*;
+
+MaximumTestCaseSize:
+	'maxTestCaseSize' size=INT;
 
 Usecase:
     'usecase' name=STRING '{'

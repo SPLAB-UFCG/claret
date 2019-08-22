@@ -28,10 +28,12 @@ import com.google.inject.Singleton
  */
 class ClaretRuntimeModule extends AbstractClaretRuntimeModule {
 
+  public static val String PLUGIN_ID = "br.edu.ufcg.splab.claret";
+		
   override configure(Binder binder) {
     super.configure(binder);
     binder.bind(IOutputConfigurationProvider)
         .to(TemplateOutputConfigurationProvider)
         .in(Singleton);
-  }
+  }		
 }

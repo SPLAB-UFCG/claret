@@ -26,6 +26,11 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IFileSystemAccessExtension3
 import org.eclipse.xtext.generator.IGeneratorContext
 import java.io.IOException
+//import com.google.inject.Inject
+//import br.edu.ufcg.splab.claret.properties.PropertiesProvider
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.resources.IFile
 
 /**
  * Generates code from your model files on save.
@@ -33,8 +38,10 @@ import java.io.IOException
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class ClaretGenerator extends AbstractGenerator {
+//  @Inject
+//  extension PropertiesProvider propertiesProvider
   override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-	val files = #['template.odt', 'template.docx']
+    val files = #['template.odt', 'template.docx']
     files.forEach[
       try {
       	if(!fsa.isFile(it, TemplateOutputConfigurationProvider::GEN_ONCE_OUTPUT)) {
@@ -46,21 +53,31 @@ class ClaretGenerator extends AbstractGenerator {
       }
     ]
 
+    val root = resource.allContents.head as Sud
+
     for (u : resource.allContents.toIterable.filter(Usecase)){
       val gml = GmlGenerator.getGMLStruct(u)
       fsa.generateFile("gml/"+ u.name + ".gml", gml.content)
       fsa.generateFile("tgf/"+ u.name + ".tgf", TgfGenerator.toText(u))
       fsa.generateFile("tgf/"+ u.name + "-annotated.tgf", AnnotatedTgfGenerator.toText(u))
-      TestSuiteGenerator.toText(u, gml).forEach[k,v|
+//      val text = getText(getIProject(u));
+      TestSuiteGenerator.toText(u, gml, root?.maximumTestCaseSize).forEach[k,v|
       	fsa.generateFile("test-suite/"+ u.name + "-"+k.toString+".txt", v.toString)
       ]
       
-      val root = resource.allContents.head as Sud
+//      val root = resource.allContents.head as Sud
+      root.maximumTestCaseSize
       if (root !== null) {
         (fsa as IFileSystemAccessExtension3).generateFile("odt/" + u.name + ".odt", OdtGenerator.generate(root.name, u, fsa))
         (fsa as IFileSystemAccessExtension3).generateFile("docx/" + u.name + ".docx", DocxGenerator.generate(root.name, u, fsa))
       }
     }
   }
+		
+  def getIProject(EObject object) {
+    val path = object.eResource.URI.toPlatformString(true);
+	val file = ResourcesPlugin.workspace?.root?.findMember(path) as IFile
+	file?.project 
+  }		
 }
 

@@ -24,8 +24,8 @@ import br.edu.ufcg.splab.claret.templating.Context
 import org.eclipse.xtext.generator.IFileSystemAccess2
 
 class DocxGenerator {
-  	def static generate(String systemName, Usecase usecase, IFileSystemAccess2 fsa) {
-		var template = fsa.readBinaryFile('template.docx', TemplateOutputConfigurationProvider::GEN_ONCE_OUTPUT)
-		return Alnico.docxTransform(template, new Context(systemName, usecase))
-  	}
+  def static generate(String systemName, Usecase usecase, IFileSystemAccess2 fsa) {
+    var template = fsa.readBinaryFile('template.docx', TemplateOutputConfigurationProvider::GEN_ONCE_OUTPUT)
+    return Alnico.docxTransform(template, new Context(systemName, usecase))
+  }
 }

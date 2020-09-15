@@ -2,7 +2,7 @@
 <feature
       id="br.edu.ufcg.splab.claret.feature"
       label="Feature"
-      version="1.2.1.qualifier"
+      version="1.3.0.qualifier"
       provider-name="SPLab/UFCG">
 
    <description url="http://www.example.com/description">

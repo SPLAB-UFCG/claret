@@ -26,8 +26,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IFileSystemAccessExtension3
 import org.eclipse.xtext.generator.IGeneratorContext
 import java.io.IOException
-//import com.google.inject.Inject
-//import br.edu.ufcg.splab.claret.properties.PropertiesProvider
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.resources.IFile
@@ -38,15 +36,14 @@ import org.eclipse.core.resources.IFile
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class ClaretGenerator extends AbstractGenerator {
-//  @Inject
-//  extension PropertiesProvider propertiesProvider
   override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
     val files = #['template.odt', 'template.docx']
+    val fsa3 = fsa as IFileSystemAccessExtension3
     files.forEach[
       try {
       	if(!fsa.isFile(it, TemplateOutputConfigurationProvider::GEN_ONCE_OUTPUT)) {
           val in = this.class.getResourceAsStream("/resources/" + it)
-          (fsa as IFileSystemAccessExtension3).generateFile(it, TemplateOutputConfigurationProvider::GEN_ONCE_OUTPUT, in)
+          fsa3.generateFile(it, TemplateOutputConfigurationProvider::GEN_ONCE_OUTPUT, in)
         }
       } catch (IOException e) {
         throw new RuntimeException(it + " cannot be loaded.", e);
@@ -60,24 +57,20 @@ class ClaretGenerator extends AbstractGenerator {
       fsa.generateFile("gml/"+ u.name + ".gml", gml.content)
       fsa.generateFile("tgf/"+ u.name + ".tgf", TgfGenerator.toText(u))
       fsa.generateFile("tgf/"+ u.name + "-annotated.tgf", AnnotatedTgfGenerator.toText(u))
-//      val text = getText(getIProject(u));
-      TestSuiteGenerator.toText(u, gml, root?.maximumTestCaseSize).forEach[k,v|
-      	fsa.generateFile("test-suite/"+ u.name + "-"+k.toString+".txt", v.toString)
-      ]
-      
-//      val root = resource.allContents.head as Sud
-      root.maximumTestCaseSize
       if (root !== null) {
-        (fsa as IFileSystemAccessExtension3).generateFile("odt/" + u.name + ".odt", OdtGenerator.generate(root.name, u, fsa))
-        (fsa as IFileSystemAccessExtension3).generateFile("docx/" + u.name + ".docx", DocxGenerator.generate(root.name, u, fsa))
+        fsa3.generateFile("odt/" + u.name + ".odt", OdtGenerator.generate(root.name, u, fsa))
+        fsa3.generateFile("docx/" + u.name + ".docx", DocxGenerator.generate(root.name, u, fsa))
+        XlsxGenerator.generate(root.name, u, gml, root?.maximumTestCaseSize, fsa).forEach[k,v|
+          fsa3.generateFile("xlsx/"+ u.name + "-"+k.toString+".xlsx", v)
+        ]
       }
     }
   }
-		
+
   def getIProject(EObject object) {
     val path = object.eResource.URI.toPlatformString(true);
-	val file = ResourcesPlugin.workspace?.root?.findMember(path) as IFile
-	file?.project 
-  }		
+    val file = ResourcesPlugin.workspace?.root?.findMember(path) as IFile
+    file?.project 
+  }
 }
 

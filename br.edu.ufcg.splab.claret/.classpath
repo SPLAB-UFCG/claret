@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry exported="true" kind="lib" path="lib/antlr4-runtime-4.8-1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/TestSelection.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.core.resources-3.7.100.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jgrapht-core-1.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-collections4-4.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-compress-1.20.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-lang3-3.8.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-text-1.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/compiler-0.9.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jgrapht-io-1.3.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/dalton/workspace/github/claret/br.edu.ufcg.splab.claret/lib/TestSelection.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jgrapht-core-1.5.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jgrapht-ext-1.5.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jgrapht-io-1.5.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/poi-4.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/poi-ooxml-4.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/poi-ooxml-schemas-4.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xmlbeans-3.1.0.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="src" path="src-gen"/>
 	<classpathentry kind="src" path="xtend-gen"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

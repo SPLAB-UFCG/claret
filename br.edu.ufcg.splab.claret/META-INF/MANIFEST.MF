@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: br.edu.ufcg.splab.claret
 Bundle-Vendor: SPLab/UFCG
-Bundle-Version: 1.2.1.qualifier
+Bundle-Version: 1.3.0.qualifier
 Bundle-SymbolicName: br.edu.ufcg.splab.claret; singleton:=true
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
@@ -32,11 +32,18 @@ Export-Package: br.edu.ufcg.splab.claret,
  br.edu.ufcg.splab.claret.validation
 Import-Package: org.apache.log4j
 Bundle-ClassPath: .,
- lib/antlr4-runtime-4.7.1.jar,
+ lib/antlr4-runtime-4.8-1.jar,
+ lib/commons-collections4-4.4.jar,
+ lib/commons-compress-1.20.jar,
  lib/commons-lang3-3.8.1.jar,
  lib/commons-text-1.5.jar,
  lib/compiler-0.9.6.jar,
- lib/jgrapht-io-1.3.0.jar,
- lib/jgrapht-core-1.3.0.jar,
  lib/org.eclipse.core.resources-3.7.100.jar,
+ lib/jgrapht-core-1.5.0.jar,
+ lib/jgrapht-ext-1.5.0.jar,
+ lib/jgrapht-io-1.5.0.jar,
+ lib/poi-4.1.0.jar,
+ lib/poi-ooxml-4.1.0.jar,
+ lib/poi-ooxml-schemas-4.1.0.jar,
+ lib/xmlbeans-3.1.0.jar,
  lib/TestSelection.jar

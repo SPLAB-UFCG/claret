@@ -15,7 +15,7 @@ Require-Bundle: br.edu.ufcg.splab.claret,
  org.eclipse.ui,
  org.eclipse.compare,
  org.eclipse.xtext.builder,
- org.eclipse.xtend.lib;resolution:=optional,
+ org.eclipse.xtend.lib;bundle-version="2.14.0";resolution:=optional,
  org.eclipse.xtext.xbase.lib;bundle-version="2.13.0",
  org.eclipse.jdt.core,
  org.eclipse.core.runtime,
@@ -23,7 +23,7 @@ Require-Bundle: br.edu.ufcg.splab.claret,
  org.eclipse.pde.core,
  org.eclipse.ui.forms
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: br.edu.ufcg.splab.claret.ui.quickfix,
  br.edu.ufcg.splab.claret.ui.contentassist,
  br.edu.ufcg.splab.claret.ui.internal,
